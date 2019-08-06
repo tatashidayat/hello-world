@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "hello-awan-tunai.fullname" . }}-test-connection"
+  labels:
+{{ include "hello-awan-tunai.labels" . | indent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "hello-awan-tunai.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
