@@ -7,7 +7,7 @@ replicaCount: 3
 image:
   repository: asia.gcr.io/helloworld-nginx/hello-awan-tunai
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 imagePullSecrets: []
 nameOverride: ""
